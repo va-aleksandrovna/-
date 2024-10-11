@@ -1,0 +1,69 @@
+﻿@model List<CarModel>
+
+@{
+    ViewData["Title"] = "Admin Page Транспорт";
+}
+
+<div class="image-container-t">
+    <div class="text-overlay3">Транспорт</div>
+    <img src="/images/1590559292496.jpg" />
+</div>
+
+<div class="tab_cars">
+    <a class="btn_filter2" style="text-decoration: none;" asp-action="Index" role="button">На главную</a>
+    <a class="btn_filter3" style="text-decoration: none;" previewlistener="true" asp-action="AddCars" role="button">Добавить</a>
+</div>
+
+<div class="cars-box">
+    <div class="cars-content">
+        @foreach (CarModel item in Model)
+        {
+            <div class="car_n">
+                <div class="line"></div>
+                <div class="car_n2">
+                    @* <div class="line"></div> *@
+                    <div class="image-container2">
+                        <img class="imageis" src="/images/@item.Image" />
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <a class="button-a2" style="color: #091242;" asp-action="EditCars" asp-route-id="@item.Id" role="button">
+                            <svg class="svg-icon-a" fill="none" viewBox="0 0 24 24" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g stroke="#0B63F6" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                        </a>
+                        <a class="button-a2" style="color: #091242;" asp-action="DeleteCars" asp-route-id="@item.Id" role="button">
+                            <svg viewBox="0 0 15 17.5" height="35" width="30" xmlns="http://www.w3.org/2000/svg" class="icon-ad">
+                                <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="car_text">
+                        <div class="car_textname">
+                            @item.Name
+                        </div>
+                        <div>
+                            <div>Цена за час: @item.PriceHour руб.</div>
+                            <div>Цена за км: @item.PriceKm руб.</div>
+                            @if (item.NumberSeats != null)
+                            {
+                                <div>Число мест: @item.NumberSeats</div>
+                            }
+                            @if (item.Length != null)
+                            {
+                                <div>Длина: @item.Length м.</div>
+                            }
+                            @if (item.Width != null)
+                            {
+                                <div>Ширина: @item.Width м.</div>
+                            }
+                            @if (item.Capacity != null)
+                            {
+                                <div>Грузоподъемность: @item.Capacity т.</div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

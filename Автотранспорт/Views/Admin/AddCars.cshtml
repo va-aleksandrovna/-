@@ -1,0 +1,86 @@
+﻿@model CarModel
+
+@{
+    ViewData["Title"] = "Admin Page Транспорт";
+}
+
+<div class="tab_drivers">
+    <a class="btn_filter2" style="text-decoration: none;" asp-action="Index" role="button">На главную</a>
+</div>
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-9 my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Добавление траспорта</h4>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Admin" asp-action="AddCars" method="post">
+                            <div class="text-danger offset-4 col-8"></div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Название</label>
+                                <div class="col-8">
+                                    <input placeholder="Название" name="Name" class="form-control here" type="text" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Цена за час (руб)</label>
+                                <div class="col-8">
+                                    <input placeholder="Цена за час" name="PriceHour" class="form-control here" type="number" min="1" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Цена за км (руб)</label>
+                                <div class="col-8">
+                                    <input placeholder="Цена за км" name="PriceKm" class="form-control here" type="number" min="1" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Число мест</label>
+                                <div class="col-8">
+                                    <input placeholder="Число мест" name="NumberSeats" class="form-control here" type="number" min="1">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Длина</label>
+                                <div class="col-8">
+                                    <input placeholder="Длина" name="Length" class="form-control here" type="number" min="1">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Ширина</label>
+                                <div class="col-8">
+                                    <input placeholder="Ширина" name="Width" class="form-control here" type="number" min="1">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Грузоподъемность</label>
+                                <div class="col-8">
+                                    <input placeholder="Грузоподъемность" name="Capacity" class="form-control here" type="number" min="1">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Изображение</label>
+                                <div class="col-8">
+                                    <input placeholder="Изображение" name="Image" class="form-control here" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="offset-4 col-8 text-right">
+                                    <button class="btn_filter4">Сохранить</button>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="text-info" asp-action="Сars"><i class="bi bi-arrow-left mr-2 text-info"></i>Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@model DriverModel
+
+@{
+    ViewData["Title"] = "Admin Page Водители";
+}
+
+<div class="tab_drivers">
+    <a class="btn_filter2" style="text-decoration: none;" asp-action="Index" role="button">На главную</a>
+</div>
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-9 my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Редактирование данных водителя</h4>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Admin" asp-action="EditDrivers" method="post">
+                            <div class="text-danger offset-4 col-8"></div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">ФИО</label>
+                                <div class="col-8">
+                                    <input placeholder="ФИО" name="Fio" value="@Model.Fio" class="form-control here" type="text" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Стаж</label>
+                                <div class="col-8">
+                                    <input placeholder="Стаж" name="Experience" value="@Model.Experience" class="form-control here" type="number" min="1" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Категория B</label>
+                                <div class="col-8">
+                                    @if (Model.B == true)
+                                    {
+                                        <input name="B" type="radio" id="true" value="true" checked />
+                                        <label for="true">Есть</label>
+                                        <input name="B" type="radio" id="false" value="false" />
+                                        <label for="false">Нет</label>
+                                    }
+                                    else
+                                    {
+                                        <input name="B" type="radio" id="true" value="true" />
+                                        <label for="true">Есть</label>
+                                        <input name="B" type="radio" id="false" value="false" checked />
+                                        <label for="false">Нет</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Категория C</label>
+                                <div class="col-8">
+                                    @if (Model.C == true)
+                                    {
+                                        <input name="C" type="radio" id="true" value="true" checked />
+                                        <label for="true">Есть</label>
+                                        <input name="C" type="radio" id="false" value="false" />
+                                        <label for="false">Нет</label>
+                                    }
+                                    else
+                                    {
+                                        <input name="C" type="radio" id="true" value="true" />
+                                        <label for="true">Есть</label>
+                                        <input name="C" type="radio" id="false" value="false" checked />
+                                        <label for="false">Нет</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Категория D</label>
+                                <div class="col-8">
+                                    @if (Model.D == true)
+                                    {
+                                        <input name="D" type="radio" id="true" value="true" checked />
+                                        <label for="true">Есть</label>
+                                        <input name="D" type="radio" id="false" value="false" />
+                                        <label for="false">Нет</label>
+                                    }
+                                    else
+                                    {
+                                        <input name="D" type="radio" id="true" value="true" />
+                                        <label for="true">Есть</label>
+                                        <input name="D" type="radio" id="false" value="false" checked />
+                                        <label for="false">Нет</label>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="offset-4 col-8 text-right">
+                                    <button class="btn_filter4">Сохранить</button>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="text-info" style="link: #091242;" asp-action="Drivers"><i class="bi bi-arrow-left mr-2 text-info"></i>Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,787 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.setting-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.bar {
+    width: 50%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 2px;
+}
+
+    .bar::before {
+        content: "";
+        width: 2px;
+        height: 2px;
+        background-color: rgb(126, 117, 255);
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid white;
+        transition: all 0.3s;
+        box-shadow: 0px 0px 5px white;
+    }
+
+.bar1::before {
+    transform: translateX(-4px);
+}
+
+.bar2::before {
+    transform: translateX(4px);
+}
+
+.setting-btn:hover .bar1::before {
+    transform: translateX(4px);
+}
+
+.setting-btn:hover .bar2::before {
+    transform: translateX(-4px);
+}
+
+.navbar-nav2 {
+    display: flex;
+    align-items: flex-end;
+    padding-left: 0;
+    padding-right: 55px;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    width: 100%;
+    left: 0px;
+    /*top: 82.96px;*/
+}
+
+
+.text-overlay {
+    position: absolute;
+    width: 500px;
+    top: 20px;
+    left: 90px;
+    color: #091242;
+    font-family: Rubik;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: left;
+}
+
+.text-overlay2 {
+    position: absolute;
+    width: 50px;
+    top: 200px;
+    left: 110px;
+    color: #091242;
+    font-family: Rubik;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: left;
+}
+
+.services {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*padding: 0px 0px 150px 0px;*/
+}
+.preim {
+    width: 294px;
+    height: 430px;
+    left: 0;
+    right: 0;
+    top: 150px;
+    bottom: -150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(28, 31, 53);
+    font-family: Rubik;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 41px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.content {
+    /* Content */
+    position: static;
+    width: 873px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 70px 33px;
+}
+
+.content1 {
+    /* 1 */
+    position: static;
+    width: 857.48px;
+    height: 145px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.content11 {
+    /* 1 */
+    position: static;
+    width: 391px;
+    height: 145px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 83px;
+}
+
+.content12 {
+    /* 2 */
+    position: static;
+    width: 383.48px;
+    height: 115px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.textm {
+    /* Text */
+    position: static;
+    width: 294.5px;
+    height: 145px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 16px;
+}
+
+.textm1 {
+    /* Text */
+    position: relative;
+    width: 270px;
+    height: 145px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px
+}
+
+.textm11 {
+    /* Быстрый поиск перевозчика */
+    position: static;
+    width: 267px;
+   /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 13px 0px;
+    color: rgb(28, 31, 53);
+    font-family: Rubik;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.textm12 {
+    /* Вы можете найти водителя в любое время, не выходя из дома. */
+    position: static;
+    width: 270px;
+    height: 72px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 13px 0px;
+    color: rgb(102, 108, 137);
+    font-family: Krub;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 151.52%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.textm2 {
+    /* Text */
+    position: static;
+    width: 295px;
+    height: 115px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 16px;
+}
+
+.textm21 {
+    /* Text */
+    position: relative;
+    width: 270px;
+    height: 115px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px
+}
+
+.contentuslug {
+    /* Content */
+    position: relative;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+}
+
+.ontentuslug {
+    /* Content */
+    position: static;
+    width: 1672.83px;
+    height: 483.91px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 65px 0px 0px 0px;
+}
+
+.textuslug {
+    /* Наши услуги */
+    position: absolute;/*
+    width: 225px;
+    height: 41px;*/
+    /*left: 723.91px;*/
+    /*right: -723.91px;*/
+    top: 0;
+    bottom: 0;
+    color: rgb(28, 31, 53);
+    font-family: Rubik;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 41px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.imageflex {
+    /* Image */
+    position: static;
+    width: 1672.83px;
+    height: 407.91px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.imagenumber {
+    /* 1 */
+    position: static;
+    width: 200px;
+    height: 400px;
+    /* Inside Auto Layout */
+    flex: none;
+    flex-grow: 0;
+    margin: 0px 18px;
+}
+
+.imagetext { 
+    /* Text */
+    position: relative;
+    width: 208px;
+    height: 52px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+}
+
+.imagetext1 {
+    /* Перевозка жидкостей */
+    position: static;
+    width: 224px;
+    height: 24px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: rgb(9, 18, 66);
+    font-family: Rubik;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.imagetext2 {
+    /* Premium транспорт */
+    position: static;
+    width: 159px;
+    height: 24px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: rgb(255, 182, 41);
+    font-family: Krub;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 151.52%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.containerr {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.16);
+}
+
+.flex-container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*width: 530px;*/
+    /*flex-direction: column;*/
+    /*background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.16);*/
+    /*margin: 0px 15px 30px 15px;*/
+    padding: 30px 30px 30px 30px;
+}
+
+.flex-container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 530px;
+    /*flex-direction: column;*/
+    /*background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.16);*/
+    /*margin: 0px 15px 30px 15px;*/
+    padding: 30px 30px 30px 30px;
+}
+
+.sel2_filter {
+    border-radius: 5px;
+    border-color: #091242;
+    height: 40px;
+    margin: 0px 15px 15px 15px;
+    width: 200px;
+}
+
+.btn_filter {
+    /*margin: 15px;*/
+    border: none;
+    color: white;
+    background: #091242;
+    border-radius: 10px;
+    margin-left: 15px;
+    height: 40px;
+    width: 120px;
+}
+
+.image-container2 {
+    position: relative;
+    display: flex;
+    width: 320px;
+    height: 200px;
+}
+
+.container11 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: space-evenly;
+    margin-bottom: 30px;+---
+}
+
+.text-overlay3 {
+    position: absolute;
+    width: 320px;
+    top: 100px;
+    text-align: center;
+    /* text-align-last: center; */
+    color: rgb(255, 182, 41);
+    font-family: Rubik;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.imageis {
+    width: 320px;
+    height: 200px;
+}
+
+.preim2 {
+    width: 180px;
+    /* height: 430px; */
+    left: 0;
+    right: 0;
+    top: 150px;
+    bottom: -150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(28, 31, 53);
+    font-family: Rubik;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 41px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.text-overlay3 {
+    position: absolute;
+    width: 50px;
+    top: 60px;
+    left: 200px;
+    color: #091242;
+    font-family: Rubik;
+    font-weight: 600;
+    font-size: 60px;
+    text-align: left;
+}
+
+.tab_drivers {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.btn_filter2 {
+    border: none;
+    color: white;
+    background: #091242;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.btn_filter3 {
+    border: none;
+    color: white;
+    background: #091242;
+    border-radius: 10px;
+    margin-left: 400px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 2px;
+    /*height: 120px;
+    width: 120px;*/
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #091242;
+}
+
+.btn-ad {
+    background-color: transparent;
+    position: relative;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.btn_filter4 {
+    border: none;
+    color: white;
+    background: #091242;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container-t {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: -17px;
+}
+
+.cars-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+}
+
+.cars-content {
+    /* Content */
+    position: static;
+    /*width: 948px;
+    height: 1825px;*/
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /*margin: 39px 0px;*/
+}
+
+.car_n {
+    /*width: 943px;
+    height: 337px;*/
+    /* Inside Auto Layout */
+    flex: none;
+    /*order: 0;*/
+    flex-grow: 0;
+    /*margin: 35px 0px;*/
+}
+
+.line {
+    top: -0.5px;
+    border: 1px solid rgb(214, 214, 214);
+    margin-bottom: 15px;
+}
+
+.car_n2 {
+    /*width: 943px;*/
+    /* height: 337px; */
+    /* flex: none; */
+    /* order: 0; */
+    flex-grow: 0;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.button-a2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 8px 12px; */
+    /* gap: 2px; */
+    height: 100px;
+    width: 100px;
+    /* border: none; */
+    /* border-radius: 20px; */
+    cursor: pointer;
+    color: #091242;
+}
+
+.car_text {
+    width: 300px;
+    height: 156px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+}
+
+.car_textname {
+    color: rgb(28, 31, 53);
+    font-family: Rubik;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.tab_cars {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.work_text {
+    width: 350px;
+    height: 156px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+}
+
+.circle {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    /*border: 1px solid red;*/
+    line-height: 65px;
+    text-align: center;
+}
+
+.btn_fil {
+    position: absolute;
+    text-decoration: none;
+    border: none;
+    color: white;
+    background: #9f8024;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 350px;
+}

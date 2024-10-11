@@ -1,0 +1,164 @@
+﻿@model WorkModel
+
+@{
+    ViewData["Title"] = "Admin Page Заявка";
+    List<DriverModel> drivers = ViewBag.Drivers;
+    List<CarModel> cars = ViewBag.Cars;
+}
+
+<div class="tab_drivers">
+    <a class="btn_filter2" style="text-decoration: none;" asp-action="Index" role="button">На главную</a>
+</div>
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-9 my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Редактирование данных @Model.TypeTransit перевозка № @Model.Id</h4>
+                        @if (!string.IsNullOrWhiteSpace(Model.Error))
+                        {
+                            <label style="color: red;">@Model.Error</label>
+                        }
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Admin" asp-action="EditWork" asp-route-TypeTransit="@Model.TypeTransit" method="post">
+                            <div class="text-danger offset-4 col-8"></div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Имя клиента:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="text" name="Name" value="@Model.Name" placeholder="Ваше имя" required="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Фамилия клиента:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="text" name="Surname" value="@Model.Surname" placeholder="Ваша фамилия" required="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Email:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="email" name="Email" value="@Model.Email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Телефон:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="tel" id="inputPhone" name="Phone" value="@Model.Phone"  placeholder="+7 (___) ___-__-__" value="+7 (___) ___-__-__" required="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Дата:</label>
+                                <div class="col-8">
+                                    <input type="date" id="deliveryDate" name="Data" value="@Model.Data.ToString("d")" class="sel2_filter" min="@DateTime.Now.ToString("MM-dd-yyyy")" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Время:</label>
+                                <div class="col-8">
+                                    <input type="time" id="deliveryTime" name="Time" value="@Model.Time" class="sel2_filter" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Откуда::</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="text" name="AddressFrom" value="@Model.AddressFrom" placeholder="Откуда" required="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Куда:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="text" name="AddressTo" value="@Model.AddressTo" placeholder="Куда" required="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Количество пассажиров:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="number" name="NumberPassenger" value="@Model.NumberPassenger" min="1" placeholder="Количество пассажиров">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Водитель:</label>
+                                <div class="col-8">
+                                    <select class="sel2_filter" name="DriversId">
+                                        <!option value="">-</!option>
+                                        @foreach (var item in drivers)
+                                        {
+                                            <!option value="@item.Id" @(Model.DriversId == item.Id ? "selected" : "")>@item.Fio</!option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Машина:</label>
+                                <div class="col-8">
+                                    <select class="sel2_filter" name="CarsId">
+                                        <!option value="">-</!option>
+                                        @foreach (var item in cars)
+                                        {
+                                            <!option value="@item.Id" @(Model.CarsId == item.Id ? "selected" : "")>@item.Name</!option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Cтатус:</label>
+                                <div class="col-8">
+                                    @if (Model.Status == true)
+                                    {
+                                        <input name="Status" type="radio" id="null" value="" />
+                                        <label for="null">Новая</label>
+                                        <input name="Status" type="radio" id="false" value="false" />
+                                        <label for="false">В работе</label>
+                                        <input name="Status" type="radio" id="true" value="true" checked />
+                                        <label for="true">Завершенная</label>
+                                    }
+                                    else if (Model.Status == false)
+                                    {
+                                        <input name="Status" type="radio" id="null" value="" />
+                                        <label for="null">Новая</label>
+                                        <input name="Status" type="radio" id="false" value="false" checked />
+                                        <label for="false">В работе</label>
+                                        <input name="Status" type="radio" id="true" value="true"  />
+                                        <label for="true">Завершенная</label>
+                                    }
+                                    else{
+                                        <input name="Status" type="radio" id="null" value="" checked />
+                                        <label for="null">Новая</label>
+                                        <input name="Status" type="radio" id="false" value="false" />
+                                        <label for="false">В работе</label>
+                                        <input name="Status" type="radio" id="true" value="true"  />
+                                        <label for="true">Завершенная</label>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Комментарий:</label>
+                                <div class="col-8">
+                                    <input class="sel2_filter" type="text" name="Comment" value="@Model.Comment" placeholder="Ваш комментарий">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-4 col-8 text-right">
+                                    <button class="btn_filter4">Сохранить</button>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="text-info" asp-action="Work"><i class="bi bi-arrow-left mr-2 text-info"></i>Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

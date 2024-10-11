@@ -1,0 +1,188 @@
+﻿@model WorkModel
+
+@{
+    ViewData["Title"] = "Admin Page Заявка";
+}
+
+<div class="tab_drivers">
+    <a class="btn_filter2" style="text-decoration: none;" asp-action="Index" role="button">На главную</a>
+</div>
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-9 my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Добавление заявки</h4>
+                        @if (Model != null && !string.IsNullOrWhiteSpace(Model.Error))
+                        {
+                            <label style="color: red;">@Model.Error</label>
+                        }
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Admin" asp-action="AddWork" method="post">
+                            @if (Model == null)
+                            {
+                                <div class="text-danger offset-4 col-8"></div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Имя клиента:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Name" placeholder="Ваше имя" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Фамилия клиента:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Surname" placeholder="Ваша фамилия" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Email:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="email" name="Email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Телефон:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="tel" id="inputPhone" name="Phone" id="inputPhone" placeholder="+7 (___) ___-__-__" value="+7 (___) ___-__-__" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Дата:</label>
+                                    <div class="col-8">
+                                        <input type="date" id="deliveryDate" name="Data" class="sel2_filter" min="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Время:</label>
+                                    <div class="col-8">
+                                        <input type="time" id="deliveryTime" name="Time" class="sel2_filter" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Откуда::</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="AddressFrom" placeholder="Откуда" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Куда:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="AddressTo" placeholder="Куда" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Тип перевозки:</label>
+                                    <div class="col-8">
+                                        <select class="sel2_filter" name="TypeTransit" placeholder="Тип перевозки" required="">
+                                            <!option value="">Тип перевозки</!option>
+                                            <!option value="Пассажирская" @(ViewBag.TypeTransit == "Пассажирская" ? "selected" : "")>Пассажирская</!option>
+                                            <!option value="Грузовая" @(ViewBag.TypeTransit == "Грузовая" ? "selected" : "")>Грузовая</!option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Количество пассажиров:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="number" name="NumberPassenger" min="1" placeholder="Количество пассажиров">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Комментарий:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Comment" placeholder="Ваш комментарий">
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-danger offset-4 col-8"></div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Имя клиента:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Name" value="@Model.Name" placeholder="Ваше имя" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Фамилия клиента:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Surname" value="@Model.Surname" placeholder="Ваша фамилия" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Email:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="email" name="Email" value="@Model.Email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Телефон:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="tel" id="inputPhone" name="Phone" value="@Model.Phone" id="inputPhone" placeholder="+7 (___) ___-__-__" value="+7 (___) ___-__-__" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Дата:</label>
+                                    <div class="col-8">
+                                        <input type="date" id="deliveryDate" name="Data" value="@Model.Data.ToString("d")" class="sel2_filter" min="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Время:</label>
+                                    <div class="col-8">
+                                        <input type="time" id="deliveryTime" name="Time" value="@Model.Time" class="sel2_filter" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Откуда::</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="AddressFrom" value="@Model.AddressFrom" placeholder="Откуда" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Куда:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="AddressTo" value="@Model.AddressTo" placeholder="Куда" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Тип перевозки:</label>
+                                    <div class="col-8">
+                                        <select class="sel2_filter" name="TypeTransit" placeholder="Тип перевозки" required="">
+                                            <!option value="">Тип перевозки</!option>
+                                            <!option value="Пассажирская" @(ViewBag.TypeTransit == "Пассажирская" ? "selected" : "")>Пассажирская</!option>
+                                            <!option value="Грузовая" @(ViewBag.TypeTransit == "Грузовая" ? "selected" : "")>Грузовая</!option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Количество пассажиров:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="number" name="NumberPassenger" value="@Model.NumberPassenger" min="1" placeholder="Количество пассажиров">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label">Комментарий:</label>
+                                    <div class="col-8">
+                                        <input class="sel2_filter" type="text" name="Comment" value="@Model.Comment" placeholder="Ваш комментарий">
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-group row">
+                                <div class="offset-4 col-8 text-right">
+                                    <button class="btn_filter4">Сохранить</button>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="text-info" asp-action="Work"><i class="bi bi-arrow-left mr-2 text-info"></i>Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
